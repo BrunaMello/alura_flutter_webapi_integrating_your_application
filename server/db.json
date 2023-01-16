@@ -1,5 +1,19 @@
 {
   "learn-http": {
     "content": "Hello World!"
-  }
+  },
+  "journals": [
+    {
+      "id": "d5bdaf30-9594-11ed-84cb-4781c5b14dd1",
+      "content": "",
+      "created_At": "2023-01-16 11:56:39.215360",
+      "updated_At": "2023-01-16 11:56:39.215361"
+    },
+    {
+      "id": "d8fc5f70-9594-11ed-84cb-4781c5b14dd1",
+      "content": "sabado",
+      "created_At": "2023-01-07 11:56:40.893939",
+      "updated_At": "2023-01-07 11:56:40.893939"
+    }
+  ]
 }
