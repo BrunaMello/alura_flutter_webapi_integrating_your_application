@@ -7,14 +7,19 @@ import 'package:http_interceptor/http/http.dart';
 import '../models/journal.dart';
 
 class JournalService {
-  static const String url = "http://192.168.8.101:3000/";
+  static const String url = "http://ip:3000/";
   static const String resource = "journals/";
 
-  http.Client client =
-      InterceptedClient.build(interceptors: [LoggingInterceptor()]);
+  http.Client client = InterceptedClient.build(
+      interceptors: [LoggingInterceptor()]
+  );
 
   String getURL() {
     return "$url$resource";
+  }
+
+  Uri getUri() {
+    return Uri.parse(getURL());
   }
 
   Future<bool> register(Journal journal) async {
@@ -22,7 +27,7 @@ class JournalService {
 
     http.Response response =
         await client.post(
-            Uri.parse(getURL()),
+            getUri(),
             headers: {'Content-Type': 'application/json'},
             body: jsonJournal);
     if (response.statusCode == 201) {
@@ -31,9 +36,24 @@ class JournalService {
     return false;
   }
 
-  Future<String> get() async {
-    http.Response response = await client.get(Uri.parse(getURL()));
-    print(response.body);
-    return response.body;
+  Future<List<Journal>> getAll() async {
+    http.Response response = await client.get(getUri());
+    if (response.statusCode != 200) {
+      throw Exception();
+    }
+
+    List<Journal> result = [];
+    List<dynamic> jsonList = json.decode(response.body);
+
+    for (var jsonMap in jsonList) {
+      result.add(Journal.fromMap(jsonMap));
+    }
+
+    return result;
   }
+
+
+
+
+
 }

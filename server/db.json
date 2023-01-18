@@ -4,16 +4,16 @@
   },
   "journals": [
     {
-      "id": "d5bdaf30-9594-11ed-84cb-4781c5b14dd1",
-      "content": "",
-      "created_At": "2023-01-16 11:56:39.215360",
-      "updated_At": "2023-01-16 11:56:39.215361"
+      "id": "fb2e19c0-9725-11ed-bdc2-e3109f4c010e",
+      "content": "chuva",
+      "created_at": "2023-01-15 11:47:45.943521",
+      "updated_at": "2023-01-15 11:47:45.943521"
     },
     {
-      "id": "d8fc5f70-9594-11ed-84cb-4781c5b14dd1",
-      "content": "sabado",
-      "created_At": "2023-01-07 11:56:40.893939",
-      "updated_At": "2023-01-07 11:56:40.893939"
+      "id": "08c7d9e0-9726-11ed-bdc2-e3109f4c010e",
+      "content": "um dia para niver",
+      "created_at": "2023-01-18 11:47:45.943521",
+      "updated_at": "2023-01-18 11:47:45.943521"
     }
   ]
 }

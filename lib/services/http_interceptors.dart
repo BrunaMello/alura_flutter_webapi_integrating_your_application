@@ -3,20 +3,20 @@ import 'package:logger/logger.dart';
 
 class LoggingInterceptor implements InterceptorContract {
 
-  Logger logger = Logger();
+  Logger logger = Logger(printer: PrettyPrinter(methodCount: 0));
 
   @override
   Future<RequestData> interceptRequest({required RequestData data}) async {
-    logger.v("Request for: ${data.baseUrl}\n Headers: ${data.headers}\n Body ${data.body}");
+    logger.v("Request for: ${data.baseUrl}\n${data.headers}");
     return data;
   }
 
   @override
   Future<ResponseData> interceptResponse({required ResponseData data}) async {
      if(data.statusCode ~/100 == 2){
-       logger.i("Response from: ${data.url}\nResponse Status: ${data.statusCode}\nHeaders: ${data.headers}\nBody ${data.body}");
+       logger.i("Response from: ${data.url}\n${data.headers}\n${data.statusCode}\n ${data.body}");
      } else {
-       logger.e("Response from: ${data.url}\nResponse Status: ${data.statusCode}\nHeaders: ${data.headers}\nBody ${data.body}");
+       logger.e("Response from: ${data.url}\n${data.headers}\n${data.statusCode}\n ${data.body}");
      }
      return data;
   }

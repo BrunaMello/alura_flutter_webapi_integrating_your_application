@@ -18,7 +18,7 @@ void execucaoNormal(){
 
 //execucao paralela
 void assicronismoBasico(){
-  print('\Assicronismo basico\n');
+  print('Assicronismo basico\n');
   print('1');
   print('2');
   Future.delayed(const Duration(seconds: 2), () => {print('3')});
